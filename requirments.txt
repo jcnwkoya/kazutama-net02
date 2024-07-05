@@ -1,0 +1,6 @@
+streamlit
+pandas
+gspread
+google
+gspread_dataframe
+styleframe
