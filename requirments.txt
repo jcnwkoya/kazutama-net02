@@ -1,6 +1,6 @@
 streamlit
 pandas
-gspread
+gspread=5.7.2
 google
 gspread_dataframe
 
