@@ -80,3 +80,4 @@ st.sidebar.selectbox('メッセージタイプ',['スピリチュアル','フロ
 
 st.sidebar.selectbox('LLM',['Amazon Titan','Claude','AI21 Jurassic','Cohere','ChatGPT','GEMINI'])
 
+st.sidebar.button('更新')
