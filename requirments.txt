@@ -1,6 +1,6 @@
 streamlit
 pandas
-gspread=5.7.2
+gspread
 google
 Credentials
 
