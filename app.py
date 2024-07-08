@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+_ = """
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -37,22 +38,30 @@ message = sh.worksheet(SP_SHEET)
 
 deta = message.get_all_values()
 df3 = pd.DataFrame(deta[2:3])
-
+"""
 st.title('Kazutama-net サンプルアプリ')
 
 st.header('SN：KZ012312X0006　USER：里中 耕也',divider='rainbow')
 
 st.write('測定コード')
 
+df1 = pd.read_excel(r'C:\Users\jcnw\.streamlit\Sokutei_code.xlsx',sheet_name='Sokutei_code')
+
 st.data_editor(df1, height=300)
 
 st.write('測定コード統計')
+
+df2 = pd.read_excel(r'C:\Users\jcnw\.streamlit\Statics_code.xlsx',sheet_name='Statics_code')
 
 st.data_editor(df2, height=300)
 
 st.write('カウンセリングメッセージ')
 
-st.write(df3)
+# st.write(df3)
+
+df3 = pd.read_excel(r'C:\Users\jcnw\.streamlit\AImessage.xlsx',sheet_name='AImessage')
+
+st.table(df3)
 
 col1, col2, col3 = st.columns(3)
 
