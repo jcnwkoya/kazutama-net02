@@ -56,6 +56,13 @@ st.write('測定コード')
 
 df1 = pd.read_excel(file_path1,sheet_name='Sokutei_code')
 
+# データフレーム内のすべての日時列を日付のみに変換
+for column in df1.select_dtypes(include=['datetime64[ns]', 'datetime']):
+    df1[column] = pd.to_datetime(df1[column]).dt.date
+
+# 数字の区切り点を表示しないようにフォーマットを適用
+df1['測定コード'] = df1['測定コード'].map('{:.0f}'.format)
+
 st.data_editor(df1, height=300)
 
 st.write('測定コード統計')
@@ -63,6 +70,9 @@ st.write('測定コード統計')
 # df2 = pd.read_excel(r'C:\Users\jcnw\.streamlit\Statics_code.xlsx',sheet_name='Statics_code')
 
 df2 = pd.read_excel(file_path2,sheet_name='Statics_code')
+
+# 数字の区切り点を表示しないようにフォーマットを適用
+df2['測定コード'] = df2['測定コード'].map('{:.0f}'.format)
 
 st.data_editor(df2, height=300)
 
