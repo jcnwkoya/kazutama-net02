@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import os
 _ = """
 import gspread
 from google.oauth2.service_account import Credentials
@@ -39,6 +40,10 @@ message = sh.worksheet(SP_SHEET)
 deta = message.get_all_values()
 df3 = pd.DataFrame(deta[2:3])
 """
+
+# ファイルのパスを設定
+file_path = os.path.join(os.getcwd(), 'Sokutei_code.xlsx')
+
 st.title('Kazutama-net サンプルアプリ')
 
 st.header('SN：KZ012312X0006　USER：里中 耕也',divider='rainbow')
