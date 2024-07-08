@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import openpyxl
+# import openpyxl
 
 # 簡単なExcelデータの表示
 st.title('Sample Streamlit App')
