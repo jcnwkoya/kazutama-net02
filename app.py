@@ -42,7 +42,9 @@ df3 = pd.DataFrame(deta[2:3])
 """
 
 # ファイルのパスを設定
-file_path = os.path.join(os.getcwd(), 'Sokutei_code.xlsx')
+file_path1 = os.path.join(os.getcwd(), 'Sokutei_code.xlsx')
+file_path2 = os.path.join(os.getcwd(), 'Statics_code.xlsx')
+file_path3 = os.path.join(os.getcwd(), 'AImessage.xlsx')
 
 st.title('Kazutama-net サンプルアプリ')
 
@@ -52,7 +54,7 @@ st.write('測定コード')
 
 # df1 = pd.read_excel(r'C:\Users\jcnw\.streamlit\Sokutei_code.xlsx',sheet_name='Sokutei_code')
 
-df1 = pd.read_excel(file_path,sheet_name='Sokutei_code')
+df1 = pd.read_excel(file_path1,sheet_name='Sokutei_code')
 
 st.data_editor(df1, height=300)
 
@@ -60,7 +62,7 @@ st.write('測定コード統計')
 
 # df2 = pd.read_excel(r'C:\Users\jcnw\.streamlit\Statics_code.xlsx',sheet_name='Statics_code')
 
-df2 = pd.read_excel(r'Statics_code.xlsx',sheet_name='Statics_code')
+df2 = pd.read_excel(file_path2,sheet_name='Statics_code')
 
 st.data_editor(df2, height=300)
 
@@ -70,7 +72,7 @@ st.write('カウンセリングメッセージ')
 
 # df3 = pd.read_excel(r'C:\Users\jcnw\.streamlit\AImessage.xlsx',sheet_name='AImessage')
 
-df3 = pd.read_excel(r'AImessage.xlsx',sheet_name='AImessage')
+df3 = pd.read_excel(file_path3,sheet_name='AImessage')
 
 st.table(df3)
 
