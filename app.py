@@ -52,7 +52,7 @@ st.write('測定コード')
 
 # df1 = pd.read_excel(r'C:\Users\jcnw\.streamlit\Sokutei_code.xlsx',sheet_name='Sokutei_code')
 
-df1 = pd.read_excel(r'Sokutei_code.xlsx',sheet_name='Sokutei_code')
+df1 = pd.read_excel(file_path,sheet_name='Sokutei_code')
 
 st.data_editor(df1, height=300)
 
