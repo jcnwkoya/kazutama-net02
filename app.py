@@ -45,13 +45,17 @@ st.header('SN：KZ012312X0006　USER：里中 耕也',divider='rainbow')
 
 st.write('測定コード')
 
-df1 = pd.read_excel(r'C:\Users\jcnw\.streamlit\Sokutei_code.xlsx',sheet_name='Sokutei_code')
+# df1 = pd.read_excel(r'C:\Users\jcnw\.streamlit\Sokutei_code.xlsx',sheet_name='Sokutei_code')
+
+df1 = pd.read_excel(r'Sokutei_code.xlsx',sheet_name='Sokutei_code')
 
 st.data_editor(df1, height=300)
 
 st.write('測定コード統計')
 
-df2 = pd.read_excel(r'C:\Users\jcnw\.streamlit\Statics_code.xlsx',sheet_name='Statics_code')
+# df2 = pd.read_excel(r'C:\Users\jcnw\.streamlit\Statics_code.xlsx',sheet_name='Statics_code')
+
+df2 = pd.read_excel(r'Statics_code.xlsx',sheet_name='Statics_code')
 
 st.data_editor(df2, height=300)
 
@@ -59,7 +63,9 @@ st.write('カウンセリングメッセージ')
 
 # st.write(df3)
 
-df3 = pd.read_excel(r'C:\Users\jcnw\.streamlit\AImessage.xlsx',sheet_name='AImessage')
+# df3 = pd.read_excel(r'C:\Users\jcnw\.streamlit\AImessage.xlsx',sheet_name='AImessage')
+
+df3 = pd.read_excel(r'AImessage.xlsx',sheet_name='AImessage')
 
 st.table(df3)
 
