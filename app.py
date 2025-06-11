@@ -74,17 +74,17 @@ df2 = pd.read_excel(file_path2,sheet_name='Statics_code')
 # 数字の区切り点を表示しないようにフォーマットを適用
 df2['測定コード'] = df2['測定コード'].map('{:.0f}'.format)
 
-st.button('機器操作')
-
 st.data_editor(df2, height=300)
 
-st.write('カウンセリングメッセージ')
+st.button('機器操作')
+
+st.write('かずちゃんメッセージ')
 
 # st.write(df3)
 
 # df3 = pd.read_excel(r'C:\Users\jcnw\.streamlit\AImessage.xlsx',sheet_name='AImessage')
 
-df3 = pd.read_excel(file_path3,sheet_name='AImessage')
+df3 = pd.read_excel(file_path3,sheet_name='Kazu_message')
 
 st.table(df3)
 
