@@ -158,7 +158,7 @@ df6 = pd.read_excel(file_path6,sheet_name='AImessage')
 
 st.sidebar.table(df6)
 
-st.sidebar.button('かずちゃんメッセージ生成')
+st.sidebar.button('かずちゃんメッセージ更新')
 
 st.sidebar.write('たまちゃんへの指示')
 
@@ -166,4 +166,4 @@ df7 = pd.read_excel(file_path7,sheet_name='AImessage')
 
 st.sidebar.table(df7)
 
-st.sidebar.button('たまちゃんメッセージ生成')
+st.sidebar.button('たまちゃんメッセージ更新')
