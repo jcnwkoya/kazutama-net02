@@ -46,9 +46,9 @@ file_path1 = os.path.join(os.getcwd(), 'Sokutei_code.xlsx')
 file_path2 = os.path.join(os.getcwd(), 'Statics_code.xlsx')
 file_path3 = os.path.join(os.getcwd(), 'AImessage.xlsx')
 
-st.title('Kazutama-net サンプルアプリ')
+st.title('Kazutama-net アプリ')
 
-st.header('SN：KZ012312X0006　USER：里中 耕也',divider='rainbow')
+st.header('SN：KZ012312X0006　USER：里中 耕也　USER No：1',divider='rainbow')
 
 st.write('測定コード')
 
@@ -74,6 +74,11 @@ df2 = pd.read_excel(file_path2,sheet_name='Statics_code')
 # 数字の区切り点を表示しないようにフォーマットを適用
 df2['測定コード'] = df2['測定コード'].map('{:.0f}'.format)
 
+col1, col2, col3 = st.columns(1)
+
+with col1:
+    st.button('機器操作')
+
 st.data_editor(df2, height=300)
 
 st.write('カウンセリングメッセージ')
@@ -86,19 +91,9 @@ df3 = pd.read_excel(file_path3,sheet_name='AImessage')
 
 st.table(df3)
 
-col1, col2, col3 = st.columns(3)
-
-with col1:
-    st.button('コード送信')
-with col2:
-    st.button('修正コード作成')
-with col3:
-    st.button('ヒーリング')
-
-
 st.sidebar.write('## 検索条件選択')
 
-st.sidebar.selectbox('測定メニュー選択',['すべて','貴男のメンタル','貴女のメンタル','愛犬のメンタル','愛猫のメンタル','家・車等のエネルギー調整','人間関係全般','人間関係（家族）','人間関係（我が子）','人間関係（義父母）','人間関係（義理の兄弟姉妹）','人間関係（現在の恋人）','人間関係（昔の恋人）','人間関係（友人・仲間）','人間関係（社長・上司）','人間関係（同僚）','人間関係（部下）','人間関係（社員・従業員）','人間関係（配偶者）'])
+st.sidebar.selectbox('測定メニュー選択',['貴男のメンタル','貴女のメンタル','愛犬のメンタル','愛猫のメンタル','家・車等のエネルギー調整','人間関係全般','人間関係（家族）','人間関係（我が子）','人間関係（義父母）','人間関係（義理の兄弟姉妹）','人間関係（現在の恋人）','人間関係（昔の恋人）','人間関係（友人・仲間）','人間関係（社長・上司）','人間関係（同僚）','人間関係（部下）','人間関係（社員・従業員）','人間関係（配偶者）','すべて'])
 
 st.sidebar.selectbox('測定モード選択',['すべて','エーテルモード','アストラルモード'])
 
