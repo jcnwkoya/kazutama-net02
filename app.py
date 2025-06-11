@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
+from PIL import Image
 _ = """
 import gspread
 from google.oauth2.service_account import Credentials
@@ -45,6 +46,10 @@ df3 = pd.DataFrame(deta[2:3])
 file_path1 = os.path.join(os.getcwd(), 'Sokutei_code.xlsx')
 file_path2 = os.path.join(os.getcwd(), 'Statics_code.xlsx')
 file_path3 = os.path.join(os.getcwd(), 'AImessage.xlsx')
+file_path4 = os.path.join(os.getcwd(), 'Kazu_message.xlsx')
+file_path5 = os.path.join(os.getcwd(), 'Tama_message.xlsx')
+file_path6 = os.path.join(os.getcwd(), 'Kazu_prompt.xlsx')
+file_path7 = os.path.join(os.getcwd(), 'Tama_prompt.xlsx')
 
 st.title('Kazutama-net アプリ')
 
@@ -65,6 +70,14 @@ df1['測定コード'] = df1['測定コード'].map('{:.0f}'.format)
 
 st.data_editor(df1, height=300)
 
+col8, col9 = st.columns(2)
+
+with col8:
+    st.button('ファイルに保存')
+with col9:
+    st.button('削除')
+
+
 st.write('測定コード統計')
 
 # df2 = pd.read_excel(r'C:\Users\jcnw\.streamlit\Statics_code.xlsx',sheet_name='Statics_code')
@@ -74,19 +87,50 @@ df2 = pd.read_excel(file_path2,sheet_name='Statics_code')
 # 数字の区切り点を表示しないようにフォーマットを適用
 df2['測定コード'] = df2['測定コード'].map('{:.0f}'.format)
 
-st.data_editor(df2, height=300)
+img = Image.open("グラフ１.jpg")
 
-st.button('機器操作')
+col10, col11 = st.columns(2)
+
+with col10:
+    st.data_editor(df2, height=300)
+
+with col11:
+    st.image(img)
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.button('メッセージ生成')
+with col2:
+    st.button('印刷')
+with col3:
+    st.button('機器操作')
 
 st.write('かずちゃんメッセージ')
 
-# st.write(df3)
+df4 = pd.read_excel(file_path4,sheet_name='AImessage')
 
-# df3 = pd.read_excel(r'C:\Users\jcnw\.streamlit\AImessage.xlsx',sheet_name='AImessage')
+st.table(df4)
 
-df3 = pd.read_excel(file_path3,sheet_name='Kazu_message')
+col4, col5 = st.columns(2)
 
-st.table(df3)
+with col4:
+    st.button('かずちゃん音声読み上げ')
+with col5:
+    st.button('かずちゃんチャット')
+
+st.write('たまちゃんメッセージ')
+
+df5 = pd.read_excel(file_path5,sheet_name='AImessage')
+
+st.table(df5)
+
+col6, col7 = st.columns(2)
+
+with col6:
+    st.button('たまちゃん音声読み上げ')
+with col7:
+    st.button('たまちゃんチャット')
 
 st.sidebar.write('## 検索条件選択')
 
@@ -105,3 +149,19 @@ st.sidebar.selectbox('メッセージタイプ',['スピリチュアル','フロ
 st.sidebar.selectbox('LLM',['Amazon Titan','Claude','AI21 Jurassic','Cohere','ChatGPT','GEMINI'])
 
 st.sidebar.button('更新')
+
+st.sidebar.write('かずちゃんへの指示')
+
+df6 = pd.read_excel(file_path6,sheet_name='AImessage')
+
+st.sidebar.table(df6)
+
+st.sidebar.button('かずちゃんメッセージ生成')
+
+st.sidebar.write('たまちゃんへの指示')
+
+df7 = pd.read_excel(file_path7,sheet_name='AImessage')
+
+st.sidebar.table(df7)
+
+st.sidebar.button('たまちゃんメッセージ生成')
