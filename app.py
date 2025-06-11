@@ -74,10 +74,7 @@ df2 = pd.read_excel(file_path2,sheet_name='Statics_code')
 # 数字の区切り点を表示しないようにフォーマットを適用
 df2['測定コード'] = df2['測定コード'].map('{:.0f}'.format)
 
-col1, col2, col3 = st.columns(1)
-
-with col1:
-    st.button('機器操作')
+st.button('機器操作')
 
 st.data_editor(df2, height=300)
 
