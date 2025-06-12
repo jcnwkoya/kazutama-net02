@@ -75,7 +75,7 @@ col8, col9 = st.columns(2)
 with col8:
     st.button('ファイルに保存')
 with col9:
-    st.button('削除')
+    st.button('   削除   ')
 
 
 st.write('測定コード統計')
@@ -102,9 +102,9 @@ col1, col2, col3 = st.columns(3)
 with col1:
     st.button('メッセージ生成')
 with col2:
-    st.button('印刷')
+    st.button(' 印刷 ')
 with col3:
-    st.button('機器操作')
+    st.button('   機器操作   ')
 
 st.write('かずちゃんメッセージ')
 
@@ -136,7 +136,7 @@ st.sidebar.write('## 検索条件選択')
 
 st.sidebar.selectbox('測定メニュー選択',['貴男のメンタル','貴女のメンタル','愛犬のメンタル','愛猫のメンタル','家・車等のエネルギー調整','人間関係全般','人間関係（家族）','人間関係（我が子）','人間関係（義父母）','人間関係（義理の兄弟姉妹）','人間関係（現在の恋人）','人間関係（昔の恋人）','人間関係（友人・仲間）','人間関係（社長・上司）','人間関係（同僚）','人間関係（部下）','人間関係（社員・従業員）','人間関係（配偶者）','すべて'])
 
-st.sidebar.selectbox('測定モード選択',['すべて','エーテルモード','アストラルモード'])
+st.sidebar.selectbox('測定モード選択',['エーテル＆アストラル','エーテルモード','アストラルモード'])
 
 st.sidebar.radio('検索期間', ('最新','期間選択','すべて'))
 
@@ -148,7 +148,7 @@ st.sidebar.button('データ更新')
 
 st.sidebar.selectbox('メッセージタイプ',['スピリチュアル','フロイト心理学','ユング心理学','アドラー心理学','占星術','禅宗'])
 
-st.sidebar.selectbox('LLM',['Amazon Titan','Claude','AI21 Jurassic','Cohere','ChatGPT','GEMINI'])
+st.sidebar.selectbox('LLM',['Claude 3 Haiku','Claude 3.5 Sonnet','Mistal 7B','Llama 3.1 Instract (8B)','ChatGPT','GEMINI'])
 
 st.sidebar.button('メッセージ更新')
 
